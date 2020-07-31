@@ -54,8 +54,7 @@ type link struct {
 }
 
 func parseYAML(data []byte) (chain []link, fault error) {
-	err := yaml.Unmarshal(data, &chain)
-	if err != nil {
+	if err := yaml.Unmarshal(data, &chain); err != nil {
 		return nil, err
 	}
 	return
