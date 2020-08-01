@@ -1,6 +1,7 @@
 package urlshort
 
 import (
+	"fmt"
 	"net/http"
 
 	yaml "gopkg.in/yaml.v2"
@@ -57,6 +58,7 @@ func parseYAML(data []byte) (chain []link, fault error) {
 	if err := yaml.Unmarshal(data, &chain); err != nil {
 		return nil, err
 	}
+	fmt.Printf("chain : %v (parseYAML)\n", chain)
 	return
 }
 
